@@ -1,8 +1,8 @@
 # rates_per_minute__raymondl146_princedenh2_rachelf94_suhanak3
 ## Roster
-Raymond Lin: PM + HTML/CSS
-Princeden Hom: SQL Database + Flask 
-Suhana Kumar: HTML / Flask
+Raymond Lin: PM + HTML/CSS <br>
+Princeden Hom: SQL Database + Flask <br>
+Suhana Kumar: HTML / Flask <br>
 Moyo Fagbuyi: Flask
 
 
