@@ -1,9 +1,28 @@
+firstL -- TIMESTAMP\n
+raymondL -- 2024-10-24 11:13\n
+started on the components section of design doc
+princedenH -- 2024-10-24 11:17\n
+started on the site map
+moyoF -- 2024-10-24 11:15\n
+started on the static files and templates folder
 princedenH -- 2024-10-28 11:20\n
 created templates and story.db
-princedenH -- 2024-10-28 11:36\n
-added install guides, launch codes, and roster to read me, app.py
 raymondL -- 2024-10-28 11:18\n
 edited the design doc and printed it
-raymondL -- 2024-10-28 11:25\n
+suhanaK -- 2024-10-28 11:22\n
+finished the application logic of the design doc
+moyoF -- 2024-10-28 11:24\n
+started on readme
+princedenH -- 2024-10-29 11:36\n
+added install guides, launch codes, and roster to read me, app.py
+raymondL -- 2024-10-29 11:25\n
 created our team's flag and added it to the repo
-firstL -- TIMESTAMP\n
+suhanaK -- 2024-10-29 11:38\n
+helped edit the readme and fixed the design doc
+moyoF -- 2024-10-30 11:29\n
+emissary today and helped work on app.py
+princedenH -- 2024-10-30 11:40\n
+finished the readme and added all the necessary elements
+raymondL -- 2024-10-30 11:27\n
+finished the design doc and added design.pdf to the repo
+
