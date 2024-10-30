@@ -1,9 +1,10 @@
 # rates_per_minute__raymondl146_princedenh2_rachelf94_suhanak3
 ## Roster
-Raymond Lin: PM + HTML/CSS <br>
-Princeden Hom: SQL Database + Flask <br>
-Suhana Kumar: HTML / Flask <br>
-Moyo Fagbuyi: Flask
+Raymond Lin: PM + Frontend, css, rendering login/logout, as well as edit stories <br>
+Princeden Hom: Backend, focusing on managing story and contributions database <br>
+Suhana Kumar: Frontend, rendering homepage and stories <br>
+Moyo Fagbuyi: Backend, focusing on user database, login, logout, and regsier <br>
+All Members: Design Doc
 
 
 ## Description of website
