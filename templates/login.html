@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- 
+RPMS - 
+SoftDev
+P00
+2024-00-00
+time spent: 0 hrs
+-->
+
+<html>
+
+  <head>
+    <title> LogIn </title>
+  </head>
+
+  <body>
+    <h1>
+      RPMS
+    </h1>
+
+    <h3>
+      Enter your username and password below to proceed.
+    </h3>
+    <form action="/auth" method="POST">
+      <label for="username">Username:</label><br>  
+      <input type="text" required id="username" name="username"> <br><br>
+      <label for="password">Password:</label><br> 
+      <input type="text" required id="password" name="password" > <br><br>
+      <input type="submit" name="sub1">
+    </form>
+  </body>
