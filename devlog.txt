@@ -1,7 +1,7 @@
 princedenH -- 2024-10-28 11:20\n
 created templates and story.db
 princedenH -- 2024-10-28 11:36\n
-added install guides, launch codes, and roster to read me
+added install guides, launch codes, and roster to read me, app.py
 raymondL -- 2024-10-28 11:18\n
 edited the design doc and printed it
 raymondL -- 2024-10-28 11:25\n
