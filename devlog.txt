@@ -20,7 +20,7 @@ created our team's flag and added it to the repo
 suhanaK -- 2024-10-29 11:38\n
 helped edit the readme and fixed the design doc
 moyoF -- 2024-10-30 11:29\n
-emissary today and helped work on app.py
+emissary today and added the utl folder 
 princedenH -- 2024-10-30 11:40\n
 finished the readme and added all the necessary elements
 raymondL -- 2024-10-30 11:27\n
