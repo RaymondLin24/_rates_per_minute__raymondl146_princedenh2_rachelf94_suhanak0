@@ -1,4 +1,4 @@
-# rates_per_minute__raymondl146_princedenh2_rachelf94_suhanak3
+# Stories by rateS_per_minute
 ## Roster
 Raymond Lin: PM + Frontend, css, rendering login/logout, as well as edit stories <br>
 Princeden Hom: Backend, focusing on managing story and contributions database <br>
