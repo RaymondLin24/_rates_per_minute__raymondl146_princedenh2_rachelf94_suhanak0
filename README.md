@@ -25,7 +25,7 @@ cd PATH/TO/rateS_per_minute__raymondl146_princedenh2_rachelf94_suhanak3/
 ```
 python3 -m venv venv_name
 ```
-4. Activate the virtual environment
+4. Activate the virtual environment <br>
 Linux
 ```
 . /venv_name/bin/activate
