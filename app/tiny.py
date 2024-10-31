@@ -1,4 +1,4 @@
 import os
 
-def sessionKey:
+def make():
     return os.urandom(32)
