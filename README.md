@@ -18,14 +18,38 @@ git clone git@github.com:RaymondLin24/rateS_per_minute__raymondl146_princedenh2_
 ### Install Dependencies 
 1. Install python 3 from [here](https://www.python.org/downloads/) if not installed already
 2. Navigate to the cloned repo
-3. In the terminal run 
+```
+cd PATH/TO/rateS_per_minute__raymondl146_princedenh2_rachelf94_suhanak3/
+```
+3. Make a virtual environment
+```
+python3 -m venv venv_name
+```
+4. Activate the virtual environment
+Linux
+```
+. /venv_name/bin/activate
+```
+Windows
+```
+. .\venv_name\Scripts\activate
+```
+macOS
+```
+source /venv_name/bin/activate
+```
+5. In the terminal run 
 ```
 pip install -r requirements.txt
 ```
  
-### How to run
-1. Navigate to the cloned repo
-2. run the following
+### Launch Codes
+1. Navigate to your cloned repo
 ```
-python3 app.py
+cd PATH/TO/rateS_per_minute__raymondl146_princedenh2_rachelf94_suhanak3/
 ```
+2. Run App
+```
+python3 app/__init__.py
+```
+3. Open the link that appears in ther terminal or type http://127.0.0.1:5000 into your browser
