@@ -39,3 +39,6 @@ finished the design doc and added design.pdf to the repo, also helped add compon
 
 princedenH -- 2024-11-1 8:33
 created users, stories, and contribution tables
+
+princedenH -- 2024-11-3 11:20
+created db_helpers.py and created helper funcitons to add to tables and get story text and check if user has contributed to a story
