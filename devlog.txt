@@ -29,7 +29,7 @@ suhanaK -- 2024-10-29 11:38
 helped edit the readme and fixed the design doc
 
 moyoF -- 2024-10-30 11:29
-emissary today and added the utl folder 
+emissary today and added the utl folder
 
 princedenH -- 2024-10-30 11:40
 finished the readme and added all the necessary elements based on external read me review (clearer instruction for creating a virtual environment and installing packages) started on app package
@@ -49,5 +49,9 @@ created db_helpers.py and created helper funcitons to add to tables and get stor
 raymondL -- 2024-11-3 10:30
 added the register button/function onto the login page
 
-suhanaK -- 2024-11-3 10:39
 finished description of project in main readme
+suhanaK -- 2024-11-3 10:39
+
+
+princedenH -- 2024-11-4 11:00
+tested the db_helper functions to add to table and check if user_id is in contributions or stories

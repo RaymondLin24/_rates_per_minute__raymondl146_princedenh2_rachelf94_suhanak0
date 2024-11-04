@@ -25,12 +25,15 @@ def add_user(username, password):
     password = str(password)
     print(f"INSERT INTO users(username, password) VALUES ('{username}', '{password}');")
     c.execute(f"INSERT INTO users(username, password) VALUES ('{username}', '{password}')")
+    db.commit()
 # adds new story to the database
 def add_story(title, content, user_id):
     c.execute(f"INSERT INTO stories(title, content, user_id) VALUES ('{str(title)}', '{str(content)}', '{int(user_id)}')")
+    db.commit()
 # adds new contribution to the database
 def add_contribution(story_id, content, user_id):
     c.execute(f"INSERT INTO contributions(story_id, content, user_id) VALUES ('{int(story_id)}', '{str(content)}', '{int(user_id)}')")
+    db.commit()
 # returns a tuple containing the title and content of a story using story_id as an identifier
 def get_story(story_id):
     c.execute(f"SELECT title, content FROM stories WHERE story_id = {story_id}")
@@ -47,4 +50,3 @@ def contributed_to_story(user_id, story_id):
         if len(i) == 0:
             return False
     return True
-db.commit()
