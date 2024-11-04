@@ -8,24 +8,23 @@ time spent: 0 hrs
 -->
 
 <html>
+<head>
+  <title>Log In</title>
+</head>
+<body>
+  <h1>RPMS</h1>
+  <h3>Enter your username and password below to proceed.</h3>
 
-  <head>
-    <title> LogIn </title>
-  </head>
+  <form action="/auth" method="POST">
+    <label for="email">Email:</label><br>
+    <input type="text" required id="email" name="email"> <br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" required id="password" name="password"> <br><br>
+    <input type="submit" name="sub1" value="Login">
+  </form>
 
-  <body>
-    <h1>
-      RPMS
-    </h1>
-
-    <h3>
-      Enter your username and password below to proceed.
-    </h3>
-    <form action="/auth" method="POST">
-      <label for="email">Email:</label><br>
-      <input type="text" required id="email" name="email"> <br><br>
-      <label for="password">Password:</label><br>
-      <input type="text" required id="password" name="password" > <br><br>
-      <input type="submit" name="sub1">
-    </form>
-  </body>
+  <div>
+    <p>Don't have an account? <a href="register.html">Register here</a>.</p>
+  </div>
+</body>
+</html>
