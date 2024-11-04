@@ -10,6 +10,10 @@ def register():
     if 'email' and 'password' in session: # will immediately send you to homepage if already registeered
         user = session['email']
         return render_template('homepage.html', name = user)
+    else:
+        email = request.form['email']
+        pwd = request.form['password']
+        db_helpers.add_user(email, pwd)
     return render_template( 'register.html' )
 
 
@@ -21,13 +25,6 @@ def disp_loginpage():
     return render_template( 'login.html' ) #renders homepage
 
 
-@app.route("/auth", methods=['GET','POST'])
-def login():
-    session['email'] = request.form['email']
-    session['password'] = request.form['password']
-    user = session['email']
-    return render_template('homepage.html', name = user)
-
 @app.route("/logout", methods = ['GET', 'POST'])
 def logout():
     session.pop('email', None)
@@ -36,7 +33,10 @@ def logout():
 
 @app.route("/homepage", methods = ['GET', 'POST'])
 def redirect():
-    return render_template('homepage.html')
+    session['email'] = request.form['email']
+    session['password'] = request.form['password']
+    user = session['email']
+    return render_template('homepage.html', name = user)
 
 
 if __name__ == "__main__":

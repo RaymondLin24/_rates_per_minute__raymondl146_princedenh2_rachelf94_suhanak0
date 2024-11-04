@@ -6,11 +6,16 @@ db = sqlite3.connect("story.db")
 c = db.cursor() #facilitate db ops
 c.execute("PRAGMA foreign_keys = ON") #enable foreign keys for the database
 
+users = "CREATE TABLE users(email TEXT, pwd TEXT)" 
+c.execute(users)
+
 # adds user to the database
 def add_user(username, password):
     username = str(username)
     password = str(password)
     c.execute(f"INSERT INTO users(username, password) VALUES ({username}, {password})")
+    c.execute("SELECT * FROM users")
+    print(c.fetchall())
     c.commit()
 # adds new story to the database
 def add_story(title, content, user_id):
@@ -36,3 +41,5 @@ def contributed_to_story(user_id, story_id):
         if len(i) == 0:
             return False
     return True
+
+c.close()
