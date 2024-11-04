@@ -5,20 +5,25 @@ import db_helpers
 app = Flask(__name__)
 app.secret_key = tiny.make()
 
-@app.route("/",  methods=['GET','POST'])
-def disp_loginpage():
-    if 'email' and 'password' in session:
+@app.route("/",  methods=['GET'])
+def register():
+    if 'email' and 'password' in session: # will immediately send you to homepage if already registeered
         user = session['email']
-        return render_template('login.html', name = user)
+        return render_template('homepage.html', name = user)
+    else:
+        email = request.form['email']
+        pwd = request.form['password']
+        db_helpers.add_user(email, pwd)
     return render_template( 'register.html' )
 
 
-@app.route("/auth", methods=['POST'])
-def post():
-    session['email'] = request.form['email']
-    session['password'] = request.form['password']
-    user = session['email']
-    return render_template('homepage.html', name = user)
+@app.route("/login",  methods=['GET','POST'])
+def disp_loginpage():
+    if 'email' and 'password' in session: # will immediately send you to homepage if already registeered
+        user = session['email']
+        return render_template('homepage.html', name = user)
+    return render_template( 'login.html' ) #renders homepage
+
 
 @app.route("/logout", methods = ['GET', 'POST'])
 def logout():
@@ -28,7 +33,10 @@ def logout():
 
 @app.route("/homepage", methods = ['GET', 'POST'])
 def redirect():
-    return render_template('homepage.html')
+    session['email'] = request.form['email']
+    session['password'] = request.form['password']
+    user = session['email']
+    return render_template('homepage.html', name = user)
 
 
 if __name__ == "__main__":
