@@ -13,7 +13,7 @@ def disp_loginpage():
     return render_template( 'register.html' )
 
 
-@app.route("/auth", methods=['POST'])
+@app.route("/login", methods=['GET'])
 def post():
     session['email'] = request.form['email']
     session['password'] = request.form['password']
