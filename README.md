@@ -8,7 +8,15 @@ All Members: Design Doc
 
 
 ## Description of website
-Scenario One: Collaborative storytelling game/website. User will be able to create accounts, log in, log out, make and contribute to stories. Users will only be able to make one contribution to a story.
+A collaborative storytelling website where users can create accounts to contribute to different stories or add new stories, helping to build and shape shared narratives together.
+```
+Users can:
+   - Create Accounts
+   - Log in and log out
+   - View other people's stories
+   - Make one contribution to a story
+   - Create a new story
+```
 ## Install Guide
 ### Clone the Project
 In your terminal, clone the repo:
