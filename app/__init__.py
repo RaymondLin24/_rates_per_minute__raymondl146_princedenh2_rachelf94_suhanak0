@@ -1,25 +1,22 @@
 from flask import Flask, render_template, request, session #this one stores like verything
 import os
-import tiny
-import db_helpers
+import tiny, db_helpers
+
 app = Flask(__name__)
 app.secret_key = tiny.make()
 
+
 @app.route("/",  methods=['GET'])
 def register():
-    if 'email' and 'password' in session: # will immediately send you to homepage if already registeered
+    if 'email' and 'password' in session:
         user = session['email']
         return render_template('homepage.html', name = user)
-    else:
-        email = request.form['email']
-        pwd = request.form['password']
-        db_helpers.add_user(email, pwd)
     return render_template( 'register.html' )
 
 
 @app.route("/login",  methods=['GET','POST'])
 def disp_loginpage():
-    if 'email' and 'password' in session: # will immediately send you to homepage if already registeered
+    if 'email' and 'password' in session:
         user = session['email']
         return render_template('homepage.html', name = user)
     return render_template( 'login.html' ) #renders homepage

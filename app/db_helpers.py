@@ -1,4 +1,5 @@
 import sqlite3 #enable SQLite operations
+from flask import session
 
 #open db if exists, otherwise create
 db = sqlite3.connect("story.db")
@@ -21,8 +22,8 @@ def test_populate():
         add_contribution(story_id, contribution, user_id)
 # adds user to the database
 def add_user(username, password):
-    username = str(username)
-    password = str(password)
+    username = session['email']
+    password = session['password']
     print(f"INSERT INTO users(username, password) VALUES ('{username}', '{password}');")
     c.execute(f"INSERT INTO users(username, password) VALUES ('{username}', '{password}')")
     db.commit()
