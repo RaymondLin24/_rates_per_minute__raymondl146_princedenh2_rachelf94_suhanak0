@@ -42,3 +42,6 @@ created users, stories, and contribution tables
 
 princedenH -- 2024-11-3 11:20
 created db_helpers.py and created helper funcitons to add to tables and get story text and check if user has contributed to a story
+
+raymondL -- 2024-11-3 10:30
+finished creating the registration page
