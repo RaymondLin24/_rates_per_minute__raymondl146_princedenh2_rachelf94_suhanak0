@@ -55,3 +55,7 @@ suhanaK -- 2024-11-3 10:39
 
 princedenH -- 2024-11-4 11:00
 tested the db_helper functions to add to table and check if user_id is in contributions or stories
+
+
+princedenH -- 2024-11-4 11:00
+tested and created db_helper functions to retrieve user_id, validate correct log ins, and check valid usernames

@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, session #this one stores like everything
 import os
-import tiny, db_helpers
-
+import tiny
 app = Flask(__name__)
 app.secret_key = tiny.make()
 
