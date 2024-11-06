@@ -8,16 +8,16 @@ app.secret_key = tiny.make()
 @app.route("/",  methods=['GET'])
 def register():
     if 'email' and 'password' in session:
-        user = session['email']
-        return render_template('homepage.html', name = user)
+        name = session['email']
+        return render_template('homepage.html', user=name)
     return render_template( 'register.html' )
 
 
 @app.route("/login",  methods=['GET','POST'])
 def disp_loginpage():
     if 'email' and 'password' in session:
-        user = session['email']
-        return render_template('homepage.html', name = user)
+        name = session['email']
+        return render_template('homepage.html', user=name)
     return render_template( 'login.html' ) #renders homepage
 
 
@@ -31,8 +31,8 @@ def logout():
 def redirect():
     session['email'] = request.form['email']
     session['password'] = request.form['password']
-    user = session['email']
-    return render_template('homepage.html', name = user)
+    name = session['email']
+    return render_template('homepage.html', user=name)
 
 
 if __name__ == "__main__":
