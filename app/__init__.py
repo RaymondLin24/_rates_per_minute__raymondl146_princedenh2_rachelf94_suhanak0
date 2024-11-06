@@ -32,7 +32,11 @@ def redirect():
     session['password'] = request.form['password']
     user = session['email']
     return render_template('homepage.html', name = user)
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> fc97fef26cfd28c899ce5395df1653546c95a52d
 if __name__ == "__main__":
     app.debug = True
     app.run()
