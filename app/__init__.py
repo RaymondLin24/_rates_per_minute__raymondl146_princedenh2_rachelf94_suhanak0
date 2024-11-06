@@ -20,7 +20,6 @@ def disp_loginpage():
         return render_template('homepage.html', name = user)
     return render_template( 'login.html' ) #renders homepage
 
-
 @app.route("/logout", methods = ['GET', 'POST'])
 def logout():
     session.pop('email', None)
@@ -33,7 +32,6 @@ def redirect():
     session['password'] = request.form['password']
     user = session['email']
     return render_template('homepage.html', name = user)
-
 
 if __name__ == "__main__":
     app.debug = True
