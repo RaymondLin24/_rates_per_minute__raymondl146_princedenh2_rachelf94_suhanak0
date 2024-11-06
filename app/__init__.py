@@ -27,6 +27,7 @@ def logout():
     session.pop('password', None)
     return render_template('logout.html')
 
+
 @app.route("/homepage", methods = ['GET', 'POST'])
 def redirect():
     session['email'] = request.form['email']
