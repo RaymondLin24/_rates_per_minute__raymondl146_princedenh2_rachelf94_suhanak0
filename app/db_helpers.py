@@ -29,7 +29,7 @@ def check_username(username):
     c.execute("SELECT username FROM users")
     usernames = c.fetchall()
     for user in usernames:
-        if (user == username):
+        if (user[0] == username):
             return True
     return False
 # adds new story to the database
@@ -60,6 +60,7 @@ def contributed_to_story(user_id, story_id):
     rows.append(c.fetchall())
     c.execute(f"SELECT * FROM contributions WHERE user_id = {user_id} AND story_id = {story_id}")
     rows.append(c.fetchall())
+    print(rows)
     for i in rows:
         if len(i) == 0:
             return False
@@ -75,9 +76,13 @@ def correct_login(username, password):
 #retrieves user_id given username
 def get_user_id(username):
     c.execute(f"SELECT user_id FROM users WHERE username = '{str(username)}' ")
-    return c.fetchall[0][0]
+    return c.fetchall()[0][0]
 def create_tables():
     c.execute("CREATE TABLE users(user_id INTEGER PRIMARY KEY, username TEXT NOT NULL, password TEXT NOT NULL)")
     c.execute("CREATE TABLE stories(story_id INTEGER PRIMARY KEY, title TEXT NOT NULL, content TEXT NOT NULL, user_id INTEGER, FOREIGN KEY (user_id) REFERENCES users(user_id))")
     c.execute("CREATE TABLE contributions(contribution_id INTEGER PRIMARY KEY, story_id INTEGER, user_id INTEGER, contribution TEXT NOT NULL, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (story_id) REFERENCES stories(story_id))")
-correct_login('username 0', 'password 0')
+def clear_tables():
+    c.execute("DELETE * FROM users")
+    c.execute("DELETE * FROM Mtablestoriesstories")
+    c.execute("DELETE * FROM users")
+print(contributed_to_story(1, 1))
