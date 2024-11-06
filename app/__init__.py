@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session #this one stores like verything
+from flask import Flask, render_template, request, session #this one stores like everything
 import os
 import tiny, db_helpers
 
