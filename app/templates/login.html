@@ -4,7 +4,7 @@ RPMS -
 SoftDev
 P00
 2024-00-00
-time spent: 0 hrs
+time spent: 2 hrs
 -->
 
 <html>
@@ -15,12 +15,17 @@ time spent: 0 hrs
   <h1>RPMS</h1>
   <h3>Enter your username and password below to proceed.</h3>
 
-  <form method="POST">
+  <form auth= method="POST">
     <label for="email">Email:</label><br>
     <input type="text" required id="email" name="email"> <br><br>
     <label for="password">Password:</label><br>
     <input type="password" required id="password" name="password"> <br><br>
     <input type="submit" name="sub1" value="Login">
+    <!-- {% if correct_login('email', 'password')%}
+      {% redirect to home %}
+    {% else %}
+      {% redirect to error page%}
+    {% endfor %} -->
   </form>
 
   <div>

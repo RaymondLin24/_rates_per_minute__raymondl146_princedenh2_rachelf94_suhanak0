@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session #this one stores like everything
 import os
-import tiny
+import tiny, db_helpers
 app = Flask(__name__)
 app.secret_key = tiny.make()
 
@@ -9,6 +9,8 @@ app.secret_key = tiny.make()
 def register():
     if 'email' and 'password' in session:
         user = session['email']
+        # pwd = session['password']
+        # db_helpers.add_user(user, pwd)
         return render_template('homepage.html', name = user)
     return render_template( 'register.html' )
 
@@ -32,8 +34,10 @@ def redirect():
     session['email'] = request.form['email']
     session['password'] = request.form['password']
     user = session['email']
+    pwd = session['password']
+    db_helpers.add_user(user, pwd)
     return render_template('homepage.html', name = user)
-    
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
