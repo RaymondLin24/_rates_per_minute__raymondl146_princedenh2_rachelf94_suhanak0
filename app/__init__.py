@@ -33,8 +33,7 @@ def redirect():
     session['password'] = request.form['password']
     user = session['email']
     return render_template('homepage.html', name = user)
-
-
+    
 if __name__ == "__main__":
     app.debug = True
     app.run()
