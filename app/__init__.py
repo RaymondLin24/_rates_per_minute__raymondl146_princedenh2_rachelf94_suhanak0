@@ -15,17 +15,29 @@ def redirect():
 
 @app.route("/",  methods=['GET', 'POST'])
 def register():
+<<<<<<< HEAD
     if 'username' and 'password' in session:
         user = session['username']
         return render_template('homepage.html', name = user)
+=======
+    if 'email' and 'password' in session:
+        name = session['email']
+        return render_template('homepage.html', user=name)
+>>>>>>> 29f64a583dc8423dee1ff6a8d9053989b7ab8ed9
     return render_template( 'register.html' )
 
 
 @app.route("/login",  methods=['GET','POST'])
 def disp_loginpage():
+<<<<<<< HEAD
     if 'username' and 'password' in session:
         user = session['username']
         return render_template('homepage.html', name = user)
+=======
+    if 'email' and 'password' in session:
+        name = session['email']
+        return render_template('homepage.html', user=name)
+>>>>>>> 29f64a583dc8423dee1ff6a8d9053989b7ab8ed9
     return render_template( 'login.html' ) #renders homepage
 
 
@@ -36,6 +48,17 @@ def logout():
     return render_template('logout.html')
 
 
+<<<<<<< HEAD
+=======
+@app.route("/homepage", methods = ['GET', 'POST'])
+def redirect():
+    session['email'] = request.form['email']
+    session['password'] = request.form['password']
+    name = session['email']
+    return render_template('homepage.html', user=name)
+
+
+>>>>>>> 29f64a583dc8423dee1ff6a8d9053989b7ab8ed9
 if __name__ == "__main__":
     app.debug = True
     app.run()
