@@ -49,8 +49,8 @@ created db_helpers.py and created helper funcitons to add to tables and get stor
 raymondL -- 2024-11-3 10:30
 added the register button/function onto the login page
 
-finished description of project in main readme
 suhanaK -- 2024-11-3 10:39
+finished description of project in main readme
 
 
 princedenH -- 2024-11-4 11:00
@@ -59,3 +59,15 @@ tested the db_helper functions to add to table and check if user_id is in contri
 
 princedenH -- 2024-11-4 11:00
 tested and created db_helper functions to retrieve user_id, validate correct log ins, and check valid usernames
+
+raymondL -- 2024-11-6 7:00
+finished register and log in functionality with databse integration
+
+moyoF -- 2024-11-6 7:45
+created home page and log out
+
+suhanaK -- 2024-11-6  8:27
+created creat story route and edit story
+
+princedenH -- 2024-11-6 9
+finishing touches, fixing datbase issues

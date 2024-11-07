@@ -24,7 +24,7 @@ def register():
 @app.route("/edited_story",  methods=['POST', 'GET'])
 def edited_story():
     story_title = request.form.get('story_title')
-    print(story_title)
+    # print(story_title)
     contribution = request.form.get('contribution')
     story_id = db_helpers.get_story_id(story_title)
     db_helpers.add_contribution(story_id[0], contribution, session["user_id"])
@@ -45,11 +45,12 @@ def create_story():
 def home():
     if 'username' and 'password' in session:
         username = session['username']
-        user_id = session['user_id']
+        user_id = db_helpers.get_user_id(username)
+        session['user_id'] = db_helpers.get_user_id(username)
         # pwd = session['password']
         # db_helpers.add_user(user, pwd)
         # print(user)
-        return render_template('homepage.html', user = user, all_stories = db_helpers.user_stories(user_id))
+        return render_template('homepage.html', user = username, all_stories = db_helpers.user_stories(user_id))
     return render_template( 'register.html' )
 
 @app.route("/check_login", methods=['POST', 'GET'])

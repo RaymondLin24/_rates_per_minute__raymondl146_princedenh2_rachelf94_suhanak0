@@ -97,6 +97,27 @@ def user_stories(user_id):
         if contributed_to_story(user_id, id[0]):
             stories.append(get_story(id[0]))
     return stories
+
+def get_recent_contribution(story_id):
+    
+    c.execute(f"SELECT title, content FROM stories WHERE story_id = {story_id}")
+    story = c.fetchall()[0]
+    complete_story = {}
+    complete_story["title"] = story[0]
+    complete_story["content"] = ""
+    c.execute(f"SELECT contribution FROM contributions WHERE story_id = {story_id}")
+    contributions = c.fetchall()
+    # print(contributions)
+    print(contributions)
+    print(len(contributions))
+    if len(contributions) == 0:
+        complete_story["content"] = story[1]
+    else:
+        i = contributions[-1]
+        complete_story["content"] = complete_story["content"] + " " + i[0]
+    # print(complete_story)
+    # print(complete_story)
+    return complete_story
 def open_stories(user_id):
     stories = []
     c.execute(f"SELECT story_id FROM stories")
@@ -104,7 +125,7 @@ def open_stories(user_id):
     # print(story_ids)
     for id in story_ids:
         if not contributed_to_story(user_id, id[0]):
-            stories.append(get_story(id[0]))
+            stories.append(get_recent_contribution(id[0]))
     return stories
 #retrieves user_id given username
 def get_user_id(username):
