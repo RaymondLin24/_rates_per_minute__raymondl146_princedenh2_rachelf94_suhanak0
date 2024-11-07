@@ -1,0 +1,41 @@
+<html>
+
+  <head>
+    <title> HomePage </title>
+  </head>
+
+  <body>
+    <h1>
+        Welcome to your Edit Page {{ user }}!
+    </h1>
+    <h3> Edit a story</h3>
+    <form action="/edited_story" method="POST">
+        <label for="story_title"><b>Story Title</b></label>
+        <select name="story_title" id="story_title">
+            {% for story in stories %}
+            <option value= "{{story['title']}}" >{{story['title']}}</option>
+            {%endfor%}
+          </select>
+  
+      <label for="contribution"><b>Contribution</b></label>
+      <input type="contribution" placeholder="contribution" name="contribution">
+      <button type="submit" name="sub1" value="submit">Submit</button>
+    </form>
+  <p> 
+    <a href="/edit_story">Contribute to a Story</a>
+</p>
+  <p> 
+      <a href="/logout">Log Out </a>
+      
+  </p>
+  
+  <h2> All Current Stories</h2>
+    {% for story in stories %}
+    <h3> {{story['title']}} </h3> <br>
+
+     <p>{{story['content']}}</p>
+     
+    <br>
+
+    {%endfor%}
+  </body> 

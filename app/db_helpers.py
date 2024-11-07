@@ -55,11 +55,12 @@ def get_story(story_id):
         for i in contributions:
             complete_story["content"] = complete_story["content"] + " " + i[0]
     # print(complete_story)
+    # print(complete_story)
     return complete_story
 # returns true if a user contributed to a story, false otherwise
 def contributed_to_story(user_id, story_id):
     rows = []
-    c.execute(f"SELECT * FROM stories WHERE story_id = {story_id} AND user_id = {user_id}")
+    c.execute(f"SELECT * FROM stories WHERE story_id = {int(story_id)} AND user_id = {int(user_id)}")
     rows.append(c.fetchall())
     c.execute(f"SELECT * FROM contributions WHERE user_id = {user_id} AND story_id = {story_id}")
     rows.append(c.fetchall())
@@ -71,7 +72,7 @@ def contributed_to_story(user_id, story_id):
 # returns true if giving a matching username and password in the database false otherwise
 def correct_login(username, password):
     c.execute(f"SELECT * FROM users WHERE username = '{str(username)}' AND password = '{str(password)}'")
-    user_info = c.fetchall()[0]
+    user_info = c.fetchall()
     if len(user_info) == 0:
         return False
     else:
@@ -86,10 +87,37 @@ def all_stories():
         # print(get_story(id[0]))
         stories.append(get_story(id[0]))
     return stories
+#returns a list of dictionaries containing each story a user contributed to
+def user_stories(user_id):
+    stories = []
+    c.execute(f"SELECT story_id FROM stories")
+    story_ids = c.fetchall()
+    # print(story_ids)
+    for id in story_ids:
+        if contributed_to_story(user_id, id[0]):
+            stories.append(get_story(id[0]))
+    return stories
+def open_stories(user_id):
+    stories = []
+    c.execute(f"SELECT story_id FROM stories")
+    story_ids = c.fetchall()
+    # print(story_ids)
+    for id in story_ids:
+        if not contributed_to_story(user_id, id[0]):
+            stories.append(get_story(id[0]))
+    return stories
 #retrieves user_id given username
 def get_user_id(username):
-    c.execute(f"SELECT user_id FROM users WHERE username = '{str(username)}' ")
-    return c.fetchall()[0][0]
+    c.execute(f"SELECT user_id FROM users WHERE username = '{str(username)}' ") 
+    id = c.fetchall()[0][0]
+    # print(id)
+    return id
+def get_story_id(title):
+    print(title)
+    c.execute(f"SELECT story_id FROM stories WHERE title = '{str(title)}' ") 
+    id = c.fetchall()[0]
+    # print(id)
+    return id
 def create_tables():
     c.execute("CREATE TABLE users(user_id INTEGER PRIMARY KEY, username TEXT NOT NULL, password TEXT NOT NULL)")
     c.execute("CREATE TABLE stories(story_id INTEGER PRIMARY KEY, title TEXT NOT NULL, content TEXT NOT NULL, user_id INTEGER, FOREIGN KEY (user_id) REFERENCES users(user_id))")

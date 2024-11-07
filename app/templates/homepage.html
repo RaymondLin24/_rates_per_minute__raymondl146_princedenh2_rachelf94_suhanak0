@@ -16,9 +16,18 @@ time spent: 0 hrs
     <h1>
         Welcome to your HomePage {{ user }}!
     </h1>
-    <p> 
-      <a href="/create_story">Create a Story</a>
-  </p>
+    <h3> Create a story</h3>
+    <form action="/create_story" method="POST">
+      <label for="title"><b>Title</b></label>
+      <input type="text" placeholder="title" name="title" >
+  
+      <label for="content"><b>Content</b></label>
+      <input type="content" placeholder="content" name="content">
+      <button type="submit" name="sub1" value="submit">Submit</button>
+    </form>
+  <p> 
+    <a href="/edit_story">Contribute to a Story</a>
+</p>
   <p> 
       <a href="/logout">Log Out </a>
       
