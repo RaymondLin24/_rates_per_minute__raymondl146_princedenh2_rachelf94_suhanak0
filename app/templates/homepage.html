@@ -16,4 +16,23 @@ time spent: 0 hrs
     <h1>
         Welcome to your HomePage {{ user }}!
     </h1>
+    <p> 
+      <a href="/create_story">Create a Story</a>
+  </p>
+  <p> 
+      <a href="/logout">Log Out </a>
+      
+  </p>
+  
+
+
+  <h2> All Current Stories</h2>
+    {% for story in all_stories %}
+    <h3> {{story['title']}} </h3> <br>
+
+     <p>{{story['content']}}</p>
+     
+    <br>
+
+    {%endfor%}
   </body> 

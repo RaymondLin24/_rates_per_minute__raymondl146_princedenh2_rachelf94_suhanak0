@@ -2,7 +2,7 @@ import sqlite3 #enable SQLite operations
 from flask import session
 
 #open db if exists, otherwise create
-db = sqlite3.connect("story.db")
+db = sqlite3.connect("story.db", check_same_thread=False)
 c = db.cursor() #facilitate db ops
 c.execute("PRAGMA foreign_keys = ON") #enable foreign keys for the database
 
@@ -42,17 +42,20 @@ def add_contribution(story_id, content, user_id):
     db.commit()
 # returns a dictionary where 'title' is the index of hte title and 'content' is the index of hte content of the story
 def get_story(story_id):
+    
     c.execute(f"SELECT title, content FROM stories WHERE story_id = {story_id}")
     story = c.fetchall()[0]
-    c.execute(f"SELECT contribution FROM contributions WHERE story_id = {story_id}")
-    contributions = c.fetchall()[0]
     complete_story = {}
     complete_story["title"] = story[0]
     complete_story["content"] = story[1]
-    for i in contributions:
-        complete_story["content"] = complete_story["content"] + " " + i
-    print(complete_story)
-    return story
+    c.execute(f"SELECT contribution FROM contributions WHERE story_id = {story_id}")
+    contributions = c.fetchall()
+    # print(contributions)
+    if contributions:
+        for i in contributions:
+            complete_story["content"] = complete_story["content"] + " " + i[0]
+    # print(complete_story)
+    return complete_story
 # returns true if a user contributed to a story, false otherwise
 def contributed_to_story(user_id, story_id):
     rows = []
@@ -60,11 +63,11 @@ def contributed_to_story(user_id, story_id):
     rows.append(c.fetchall())
     c.execute(f"SELECT * FROM contributions WHERE user_id = {user_id} AND story_id = {story_id}")
     rows.append(c.fetchall())
-    print(rows)
+    # print(rows)
     for i in rows:
-        if len(i) == 0:
-            return False
-    return True
+        if len(i) != 0:
+            return True
+    return False
 # returns true if giving a matching username and password in the database false otherwise
 def correct_login(username, password):
     c.execute(f"SELECT * FROM users WHERE username = '{str(username)}' AND password = '{str(password)}'")
@@ -73,6 +76,16 @@ def correct_login(username, password):
         return False
     else:
         return True
+#returns a list of dictionaries containing each story in the database
+def all_stories():
+    stories = []
+    c.execute(f"SELECT story_id FROM stories")
+    story_ids = c.fetchall()
+    # print(story_ids)
+    for id in story_ids:
+        # print(get_story(id[0]))
+        stories.append(get_story(id[0]))
+    return stories
 #retrieves user_id given username
 def get_user_id(username):
     c.execute(f"SELECT user_id FROM users WHERE username = '{str(username)}' ")
@@ -82,7 +95,6 @@ def create_tables():
     c.execute("CREATE TABLE stories(story_id INTEGER PRIMARY KEY, title TEXT NOT NULL, content TEXT NOT NULL, user_id INTEGER, FOREIGN KEY (user_id) REFERENCES users(user_id))")
     c.execute("CREATE TABLE contributions(contribution_id INTEGER PRIMARY KEY, story_id INTEGER, user_id INTEGER, contribution TEXT NOT NULL, FOREIGN KEY (user_id) REFERENCES users(user_id), FOREIGN KEY (story_id) REFERENCES stories(story_id))")
 def clear_tables():
-    c.execute("DELETE * FROM users")
-    c.execute("DELETE * FROM Mtablestoriesstories")
-    c.execute("DELETE * FROM users")
-print(contributed_to_story(1, 1))
+    c.execute("DELETE  FROM users")
+    c.execute("DELETE  FROM stories")
+    c.execute("DELETE FROM users")
