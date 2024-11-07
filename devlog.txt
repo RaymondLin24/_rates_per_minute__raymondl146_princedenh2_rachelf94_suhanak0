@@ -66,8 +66,14 @@ finished register and log in functionality with databse integration
 moyoF -- 2024-11-6 7:45
 created home page and log out
 
+suhanaK -- 2024-11-6 11:34
+began to fix issue with rendering template
+
 suhanaK -- 2024-11-6  8:27
 created creat story route and edit story
 
 princedenH -- 2024-11-6 9
 finishing touches, fixing datbase issues
+
+suhanaK -- 2024-11-6 11:50
+made edit_story, new_story html. fixed homepage, added routes for story func()
