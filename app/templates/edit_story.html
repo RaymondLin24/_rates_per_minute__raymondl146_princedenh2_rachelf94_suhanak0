@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="styles.css">
 <html>
 
   <head>
@@ -9,7 +10,7 @@
         Welcome to your Edit Page {{ user }}!
     </h1>
     <h3> Edit a story</h3>
-    <form action="/edited_story" method="POST">
+    <form id = "edit" action="/edited_story" method="POST">
         <label for="story_title"><b>Story Title</b></label>
         <select name="story_title" id="story_title">
             {% for story in stories %}

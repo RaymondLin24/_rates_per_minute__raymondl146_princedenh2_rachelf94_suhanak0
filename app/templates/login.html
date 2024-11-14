@@ -3,28 +3,28 @@
 RPMS -
 SoftDev
 P00
-2024-00-00
-time spent: 2 hrs
+2024-11-06
+time spent: 1 hrs
 -->
-
+<link rel="stylesheet" href="styles.css">
 <html>
 <head>
   <title>Log In</title>
 </head>
 <body>
-  <h1>RPMS</h1>
+  <h1>RateS Per Minutes' Storytelling</h1>
   <h3>Enter your username and password below to proceed.</h3>
 
-  <form action="/check_login" method="POST">
-    <label for="username">Username:</label><br>
+  <form id = "login" action="/check_login" method="POST">
+    <label for="usernameLN">Username:</label><br>
     <input type="text" required id="username" name="username"> <br><br>
-    <label for="password">Password:</label><br>
+    <label for="passwordLN">Password:</label><br>
     <input type="password" required id="password" name="password"> <br><br>
     <input type="submit" name="sub1" value="Login">
   </form>
 
   <div>
-    <p>Don't have an account? <a href="/">Register here</a></p>
+    <p>Don't have an account? <a id="reg" href="/">Register here</a></p>
   </div>
 </body>
 </html>
