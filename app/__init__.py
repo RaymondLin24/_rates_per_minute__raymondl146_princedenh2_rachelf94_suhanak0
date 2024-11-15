@@ -66,15 +66,13 @@ def check_login():
         return render_template("error.html", error = "Error: Invalid Login")
 @app.route("/login",  methods=['POST', 'GET'])
 def disp_loginpage():
-    return render_template( 'login.html' ) 
+    return render_template( 'login.html' )
 
 @app.route("/logout", methods = ['POST', 'GET'])
 def logout():
     session.pop('username', None)
     session.pop('password', None)
     return render_template('logout.html')
-
-
 
 
 
